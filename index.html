@@ -16,15 +16,20 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha256-HtsXJanqjKTc8vVQjO4YMhiqFoXkfBsjBWcX91T1jr8=" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/red/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
 
-<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta property="og:type" content="website">
+    <meta name="description" content="分享日常">
+<meta property="og:type" content="website">
 <meta property="og:title" content="Ritsuwyh的个人主页">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="Ritsuwyh的个人主页">
+<meta property="og:description" content="分享日常">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="Yuheng Wu">
+<meta property="article:tag" content="本科生 人工智能 南京大学">
 <meta name="twitter:card" content="summary">
 
 
@@ -44,7 +49,20 @@
 
 
 
-
+<link rel="stylesheet" href="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.css"><style>
+#needsharebutton-postbottom {
+  cursor: pointer;
+  height: 26px;
+  margin-top: 10px;
+  position: relative;
+}
+#needsharebutton-postbottom .btn {
+  border: 1px solid $btn-default-border-color;
+  border-radius: 3px;
+  display: initial;
+  padding: 1px 4px;
+}
+</style>
   <noscript>
     <link rel="stylesheet" href="/css/noscript.css">
   </noscript>
@@ -71,10 +89,12 @@
       <h1 class="site-title">Ritsuwyh的个人主页</h1>
       <i class="logo-line"></i>
     </a>
+      <p class="site-subtitle" itemprop="description">欢迎</p>
   </div>
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -83,11 +103,37 @@
 
 <nav class="site-nav">
   <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </header>
         
@@ -115,7 +161,7 @@
     <img class="site-author-image" itemprop="image" alt="Yuheng Wu"
       src="/images/avatar.jpg">
   <p class="site-author-name" itemprop="name">Yuheng Wu</p>
-  <div class="site-description" itemprop="description"></div>
+  <div class="site-description" itemprop="description">分享日常</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
@@ -137,12 +183,35 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/ritsuwyh" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;ritsuwyh" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:nanjingwyh@gmail.com" title="E-Mail → mailto:nanjingwyh@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/zh-CNs" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/small/by_nc_sa.svg" alt="Creative Commons"></a>
+  </div>
 
         </div>
       </div>
     </div>
 
     
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="https://zhuanlan.zhihu.com/p/26625249" title="https:&#x2F;&#x2F;zhuanlan.zhihu.com&#x2F;p&#x2F;26625249" rel="noopener" target="_blank">GitHub+Hexo 搭建个人网站详细教程</a>
+            </li>
+        </ul>
+      </div>
+    </div>
   </aside>
 
 
@@ -167,7 +236,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Ritsuwyh的个人主页">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="分享日常">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -194,7 +263,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-04-06 15:22:33" itemprop="dateModified" datetime="2023-04-06T15:22:33+08:00">2023-04-06</time>
+      <time title="修改时间：2023-04-07 13:31:31" itemprop="dateModified" datetime="2023-04-07T13:31:31+08:00">2023-04-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -211,6 +280,21 @@
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.8k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>2 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -220,49 +304,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h1 id="211300044-吴羽珩-x32-x35-53-x39-x32-x38-48-x38-x35-x39-64-113-x71-x2e-99-x6f-109"><a href="#211300044-吴羽珩-x32-x35-53-x39-x32-x38-48-x38-x35-x39-64-113-x71-x2e-99-x6f-109" class="headerlink" title="211300044 吴羽珩 &#x32;&#x35;&#53;&#x39;&#x32;&#x38;&#48;&#x38;&#x35;&#x39;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;"></a>211300044 吴羽珩 <a href="mailto:&#x32;&#x35;&#53;&#x39;&#x32;&#x38;&#48;&#x38;&#x35;&#x39;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x32;&#x35;&#53;&#x39;&#x32;&#x38;&#48;&#x38;&#x35;&#x39;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;</a></h1><h2 id="实验进度："><a href="#实验进度：" class="headerlink" title="实验进度："></a>实验进度：</h2><p>我完成了所有内容</p>
-<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><p>1.3</p>
-<p><img src="/2023/04/05/OSlab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/1.png"></p>
-<h2 id="实验修改的代码位置（lab1-3）"><a href="#实验修改的代码位置（lab1-3）" class="headerlink" title="实验修改的代码位置（lab1.3）"></a>实验修改的代码位置（lab1.3）</h2><ol>
-<li><p>start.s：  启动A20总线; cr0最低位置0; 初始化DS ES FS GS SS,初始化栈顶指针ESP; 填写GDT; 在1.2的基础上更改，display，nextchar，loop不再需要，直接jump bootMain即可。</p>
-</li>
-<li><p>boot.c:    修改bootMain函数，利用readSect函数将第一块磁盘读出，读到地址为0x8c00的内存中</p>
-<p>因为在app文件夹中的makefile文件指出了入口地址0x8c00</p>
-<figure class="highlight makefile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ld -m elf_i386 -e start -Ttext 0x8c00 app.o -o app.elfs</span><br></pre></td></tr></table></figure>
-
-<p>然后使用内联汇编跳转到入口地址。</p>
-</li>
-<li><p>app.s:   注意到讲义中屏幕中字符串的颜色为粉色，故将displayStr函数中的最后一行改为</p>
-</li>
-</ol>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">movb $0x0d, %ah</span><br></pre></td></tr></table></figure>
-
-<p>以实现颜色的改变。</p>
-<h2 id="思考题："><a href="#思考题：" class="headerlink" title="思考题："></a>思考题：</h2><p><strong>Ex1：</strong>你弄清楚本小结标题中各种名词的含义和他们间的关系了吗？请在实验报告中阐述。</p>
-<p>CPU、内存、BIOS、磁盘、主引导扇区、加载程序、 操作系统</p>
-<p><strong>答：CPU 是中央处理器，是计算机的核心组成部分，可以运行机器指令并得到计算结果；内存是一种存储器，用于暂存 CPU 中的运算数据和与外部储存设备进行数据交换；BIOS 是用于计算机加电启动后的初始阶段进行初始化的固件；磁盘是外部存储设备，掉电后数据不会丢失；主引导扇区是磁盘上特定扇区的名称， 又称主引导记录，用于加载并转让处理器控制权给操作系统；操作系统是管理计算机硬件和软件资源的一段程序</strong></p>
-<p><strong>Ex2：</strong>中断向量表是什么？你还记得吗？请查阅相关资料，并在报告上说明。</p>
-<p><strong>答</strong>：是指<strong>中断服务程序入口地址的偏移量与段基值</strong>，<strong>一个中断向量占据4字节空间</strong>。中断向量表是8086系统内存中<strong>最低端1K字节空间</strong>，它的作用就是按照中断类型号从小到大的顺序存储对应的中断向量，总共存储256个中断向量。在中断响应过程中，CPU通过从接口电路获取的中断类型号（中断向量号）计算对应中断向量在表中的位置，并从中断向量表中获取中断向量，将程序流程转向中断服务程序的入口地址。</p>
-<p><strong>Ex3：</strong>为什么段的⼤⼩最⼤为64KB，请在报告上说明原因</p>
-<p><strong>答</strong>：8086为16位cpu，其表示范围是 0x0000~0x0FFFF，总共有2^16(2的16次方)=64KB个不同的取值，一个内存单元使用1个偏移地址，故一个段的大小是64KB</p>
-<p><strong>Ex4:</strong> genboot.pl其实是⼀个脚本程序，虽然我们没学过这种脚本语⾔，但可以⼤概看出来，它先打开 mbr.bin，然后检查⽂件是否⼤于 510字节等等。请观察genboot.pl，说明它在检查⽂件是否⼤于510字节之后做了什么，并解释它为什么这么做。在实验报告中简述⼀下。</p>
-<p><strong>答</strong>：</p>
-<p>若大于，则exit退出，若小于，则输出当前boot block的大小，继续打开之后的文件直到达到512字节。</p>
-<p><strong>Ex5:</strong> 请简述电脑从加电开始，到OS开始执⾏为⽌，计算机是如何运行的。简略描述即可</p>
-<p><strong>答</strong>：<strong>cpu在加电之后首先会初始化寄存器，主要是CF寄存器和EIP寄存器，因为他们合起来组成了第一条指令的线性地址。cpu第一条指令从内存中的ROM中取出，这条指令会跳转到BIOS固件进行开机自检，然后BIOS将磁盘的主引导扇区（MBR）加载到0x7c00，并跳转到0x7c00的内存位置，执行加载程序(bootloader)，将操作系统的代码和数据从磁盘加载到内存中并跳转到操作系统的起始地址。</strong></p>
-<h2 id="遇到的问题和一些想法："><a href="#遇到的问题和一些想法：" class="headerlink" title="遇到的问题和一些想法："></a>遇到的问题和一些想法：</h2><p>1.</p>
-<p>在实验过程中，发现内存不够，于是更改虚拟机内存设置，从10G更改为20G，重新打开虚拟机，发现文件系统损坏，于是重新导入，上网查阅资料，得知不止需要更改虚拟机的设置，还要在linux系统下更改分区大小，使用gparted </p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Chen_qi_hai/article/details/108814596">VMware虚拟机扩展磁盘容量_晨海1024的博客-CSDN博客</a></p>
-<p>2.</p>
-<p>gdt视频段描述符的填写方式不太清楚（未找到资料）</p>
-<p>3.</p>
-<p>movb $0x0a, %ah 黑色背景绿色字体</p>
-<p>movb $0x0b, %ah 黑色背景蓝色字体</p>
-<p>movb $0x0c, %ah 黑色背景红色字体</p>
-<p>movb $0x0d, %ah 黑色背景粉色字体</p>
-<p>可以输出其他背景色 比如 movb $0xac, %ah  则会有以下效果</p>
-<p><img src="/2023/04/05/OSlab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/2.png"></p>
-
+          <p>大二下操作系统第一次作业</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/05/OSlab1%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -297,7 +347,7 @@
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="Ritsuwyh的个人主页">
-      <meta itemprop="description" content="">
+      <meta itemprop="description" content="分享日常">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
@@ -324,10 +374,25 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-03-27 14:31:20" itemprop="dateModified" datetime="2023-03-27T14:31:20+08:00">2023-03-27</time>
+      <time title="修改时间：2023-04-07 13:30:35" itemprop="dateModified" datetime="2023-04-07T13:30:35+08:00">2023-04-07</time>
     </span>
 
   
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>367</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
 </div>
 
         </div>
@@ -337,20 +402,15 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+          <p>hexo基本使用</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2023/04/05/hello-world/">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -384,9 +444,61 @@
   </span>
   <span class="author" itemprop="copyrightHolder">Yuheng Wu</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="站点总字数">2k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">2 分钟</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">
+<!--由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动 -->
+
   </div>
 
+<span id="timeDate">载入天数...</span>
+<span id="times">载入时分秒...</span>
+<script>
+    var now = new Date();
+    function createtime() {
+        var grt= new Date("03/01/2023 10:00:00"); //此处修改你的建站时间或者网站上线时间
+        now.setTime(now.getTime()+250);
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days);
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours);
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;}
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 ";
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒.";
+    }
+setInterval("createtime()",250);
+</script>
     </div>
   </footer>
 
@@ -405,16 +517,29 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
 <script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
   
-
-
-
-
-  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
 
 
+  <script src="//cdn.jsdelivr.net/gh/theme-next/theme-next-needmoreshare2@1/needsharebutton.min.js"></script>
+  <script>
+      pbOptions = {};
+        pbOptions.iconStyle = "box";
+        pbOptions.boxForm = "horizontal";
+        pbOptions.position = "bottomCenter";
+        pbOptions.networks = "Wechat,QQZone,Weibo,Douban,Twitter,Facebook";
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+  </script>
 </body>
 </html>
